@@ -191,11 +191,8 @@ class WhatsAppClonePage extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  BigText(
-                                    text: user.userName,
-                                    fontWeight: FontWeight.bold,
-                                    size: 24,
-                                  ),
+                                  Text(user.userName,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
+
                                   SizedBox(
                                     height: 10,
                                   ),
