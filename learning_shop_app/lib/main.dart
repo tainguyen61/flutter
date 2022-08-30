@@ -3,8 +3,14 @@ import 'package:learning_shop_app/ui/pages/my_cart/my_cart_page.dart';
 import 'package:learning_shop_app/ui/pages/product/product_page.dart';
 
 import 'ui/pages/home/home_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) => runApp(MyApp()));
   runApp(const MyApp());
 }
 
