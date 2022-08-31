@@ -54,6 +54,14 @@ class CardItem extends StatelessWidget {
                     )
                   ],
                 ),
+              ),
+              Container(
+                width: 120,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/apple_watch_series_3.png'),
+                  ),
+                ),
               )
             ],
           ),

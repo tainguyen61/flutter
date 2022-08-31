@@ -10,19 +10,20 @@ class ProductListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300,
-      child: Container(
-        padding: EdgeInsets.all(5),
-        margin: const EdgeInsets.only(left: 10),
-        child: ListView.builder(
-          itemCount: 5,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return ProductItem(
-              onProductClicked: (){onProductClicked(index);},
-            );
-          },
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return ProductItem(
+            onProductClicked: (){onProductClicked(index);},
+          );
+        },
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.65,
         ),
       ),
     );

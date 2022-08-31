@@ -24,6 +24,9 @@ class ProductPageView extends StatelessWidget {
                       bottomLeft: Radius.circular(360),
                       bottomRight: Radius.circular(360),
                     ),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/apple_watch_series_3.png',),
+                    ),
                   ),
                 );
               }),

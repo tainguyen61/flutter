@@ -104,6 +104,14 @@ class ProductItem extends StatelessWidget {
                 ),
               ),
             ),
+            Positioned(child: Container(
+              height: 220,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/apple_watch_series_3.png',),
+                ),
+              ),
+            ))
           ],
         ),
       ),

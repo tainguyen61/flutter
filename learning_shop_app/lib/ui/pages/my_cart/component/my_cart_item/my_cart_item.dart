@@ -11,15 +11,19 @@ class MyCartItem extends StatelessWidget {
   final String itemSize;
   final double itemPrice;
   final int itemCount;
-  final VoidCallback onPlusPressed;
-  final VoidCallback onMinusPressed;
+  final int index;
+  // final VoidCallback onPlusPressed;
+  // final VoidCallback onMinusPressed;
 
   const MyCartItem({Key? key,
     required this.itemImg,
     required this.itemName,
     required this.itemSize,
     required this.itemPrice,
-    required this.itemCount, required this.onPlusPressed, required this.onMinusPressed,})
+    required this.itemCount,
+    required this.index,
+    // required this.onPlusPressed, required this.onMinusPressed,
+  })
       : super(key: key);
 
   @override
@@ -46,7 +50,7 @@ class MyCartItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.grey,
                 image: DecorationImage(
-                    image: NetworkImage(
+                    image: AssetImage(
                       itemImg,
                     ),
                     fit: BoxFit.cover),
@@ -69,7 +73,7 @@ class MyCartItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          MyCartItemPrice(subTotal: subTotal),
+                          MyCartItemPrice(index: index),
                           Container(
                             height: 35,
                             padding: EdgeInsets.symmetric(
@@ -80,8 +84,8 @@ class MyCartItem extends StatelessWidget {
                             ),
                             child: MyCartItemCounter(
                               itemCount: itemCount,
-                              onMinusPressed: onMinusPressed,
-                              onPlusPressed: onPlusPressed,
+                              // onMinusPressed: onMinusPressed,
+                              // onPlusPressed: onPlusPressed,
                             ),
                           )
                         ],

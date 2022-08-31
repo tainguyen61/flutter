@@ -4,6 +4,7 @@ import 'package:learning_shop_app/ui/pages/my_cart/data/models/product.dart';
 import 'package:learning_shop_app/ui/pages/my_cart/data/my_cart_state.dart';
 import 'package:learning_shop_app/widget/big_text.dart';
 import 'package:learning_shop_app/widget/small_text.dart';
+import 'package:provider/provider.dart';
 
 class ProductBottom extends StatelessWidget {
   const ProductBottom({Key? key}) : super(key: key);
@@ -48,17 +49,18 @@ class ProductBottom extends StatelessWidget {
           SizedBox(height: 20,),
           InkWell(
             onTap: (){
-              myCartState.productList.add(
-                MyCartItemModel(
-                  product: Product(
-                    image:
-                    'https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2022/4/18/637858879586180994_Apple%20Watch%20Series%203%20GPS%20(1).jpg',
-                    name: 'Apple Watch Series 1',
-                    size: '42mm',
-                    price: 140,
-                  ),
+              MyCartItemModel myData = Provider.of<MyCartItemModel>(context,listen: false);
+              myData.add(
+                Product(
+                  image:
+                  'assets/images/apple_watch_series_3.png',
+                  name: 'Apple Watch Series 1',
+                  size: '42mm',
+                  quantity: 1,
+                  price: 140,
                 ),
               );
+              print(myData.countItem);
             },
             child: SizedBox(
               width: double.infinity,

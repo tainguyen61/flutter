@@ -3,6 +3,7 @@ import 'package:learning_shop_app/ui/pages/home/home_page.dart';
 import 'package:learning_shop_app/ui/pages/my_cart/component/my_cart_list.dart';
 import 'package:learning_shop_app/widget/big_text.dart';
 import 'package:learning_shop_app/widget/small_text.dart';
+import 'package:provider/provider.dart';
 
 import 'data/models/my_cart_item_model.dart';
 import 'data/models/product.dart';
@@ -23,6 +24,7 @@ class _MyCartPageState extends State<MyCartPage> {
 
   @override
   Widget build(BuildContext context) {
+    MyCartItemModel myData = Provider.of<MyCartItemModel>(context,listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -54,14 +56,14 @@ class _MyCartPageState extends State<MyCartPage> {
         ),
       ),
       body: MyCartList(
-        onMinusMyCartItemClicked: (index){
-          myCartState.productList.elementAt(index).count--;
-          setState(() {});
-        },
-        onPlusMyCartItemClicked: (index){
-          myCartState.productList.elementAt(index).count++;
-          setState(() {});
-        },
+        // onMinusMyCartItemClicked: (index){
+        //   myCartState.productList.elementAt(index).count--;
+        //   setState(() {});
+        // },
+        // onPlusMyCartItemClicked: (index){
+        //   myCartState.productList.elementAt(index).count++;
+        //   setState(() {});
+        // },
       ),
       bottomNavigationBar: Container(
         height: 120,
@@ -75,7 +77,7 @@ class _MyCartPageState extends State<MyCartPage> {
                   text: 'Total',
                 ),
                 BigText(
-                  text: '\$'+myCartState.totalPrice.toString(),
+                  text: '\$'+myData.totalPrice.toString(),
                   color: Colors.deepOrange,
                   fontWeight: FontWeight.w900,
                 ),
@@ -86,7 +88,7 @@ class _MyCartPageState extends State<MyCartPage> {
             ),
             InkWell(
               onTap: () {
-                myCartState.productList.clear();
+                myData.clear();
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
                     builder: (_) {

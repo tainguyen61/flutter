@@ -3,6 +3,9 @@ import 'package:learning_shop_app/ui/pages/home/home_page.dart';
 import 'package:learning_shop_app/ui/pages/product/component/product_body.dart';
 import 'package:learning_shop_app/ui/pages/product/component/product_bottom.dart';
 import 'package:learning_shop_app/ui/pages/product/component/product_page_view.dart';
+import 'package:provider/provider.dart';
+
+import '../my_cart/data/models/my_cart_item_model.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({Key? key}) : super(key: key);

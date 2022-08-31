@@ -2,25 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:learning_shop_app/ui/pages/home/component/card/card_list.dart';
 import 'package:learning_shop_app/ui/pages/home/component/categories/categories_list.dart';
 import 'package:learning_shop_app/ui/pages/home/component/product/product_list.dart';
+import 'package:learning_shop_app/ui/pages/my_cart/data/models/my_cart_item_model.dart';
 import 'package:learning_shop_app/ui/pages/my_cart/data/my_cart_state.dart';
 import 'package:learning_shop_app/widget/big_text.dart';
 import 'package:learning_shop_app/widget/small_text.dart';
+import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    MyCartItemModel myData = Provider.of<MyCartItemModel>(context,listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -37,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         actions: [
-          myCartState.productList.length > 0 ?
+          myData.countItem > 0 ?
           Stack(
             children: [
               Positioned(
@@ -47,18 +40,26 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Colors.deepOrange),
-                  child: SmallText(
-                    text: myCartState.productList.length.toString(),
-                    color: Colors.white,
+                  child: Consumer<MyCartItemModel>(
+                    builder: (context,myData,child){
+                      return SmallText(
+                        text: myData.countItem.toString(),
+                        color: Colors.white,
+                      );
+                    },
+                    child: SmallText(
+                      text: myData.countItem.toString(),
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
               IconButton(
                 onPressed: () async {
                   await Navigator.of(context).pushNamed("cart_page");
-                  setState(() {
-
-                  });
+                  // setState(() {
+                  //
+                  // });
                 },
                 icon: Icon(
                   Icons.shopping_cart,
@@ -69,9 +70,9 @@ class _HomePageState extends State<HomePage> {
           ):IconButton(
             onPressed: () async {
               await Navigator.of(context).pushNamed("cart_page");
-              setState(() {
-
-              });
+              // setState(() {
+              //
+              // });
             },
             icon: Icon(
               Icons.shopping_cart,
@@ -133,9 +134,10 @@ class _HomePageState extends State<HomePage> {
             ),
             ProductListPage(onProductClicked: (index) async{
               await Navigator.of(context).pushNamed("product");
-              setState(() {
-
-              });
+              print(myData.countItem);
+              // setState(() {
+              //
+              // });
             },),
           ],
         ),
@@ -143,4 +145,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
 
