@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:learning_shop_app/ui/pages/my_cart/data/models/my_cart_item_model.dart';
 import 'package:learning_shop_app/ui/pages/my_cart/data/models/product.dart';
@@ -60,7 +62,10 @@ class ProductBottom extends StatelessWidget {
                   price: 140,
                 ),
               );
+              final product = Product(image: 'a', name: 'name', size: 'size', quantity: 1, price: 1);
+              final String json = jsonEncode(myData.product);
               print(myData.countItem);
+              print(json);
             },
             child: SizedBox(
               width: double.infinity,

@@ -12,5 +12,13 @@ class Product {
       required this.quantity,
       required this.price
   });
-
+  Map<String,dynamic> toJson(){
+    return {
+      'image': image,
+      'name': name,
+      'size':size,
+      'quantity':quantity,
+      'price':price
+    };
+  }
 }
