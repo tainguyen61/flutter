@@ -36,8 +36,8 @@ class StudentAddPage extends StatelessWidget {
             ),
             TextField(
               controller: _name,
-              style: TextStyle(fontSize: 18),
-              decoration: InputDecoration(
+              style: const TextStyle(fontSize: 18),
+              decoration: const InputDecoration(
                 filled: true,
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 hintText: "Fullname",
@@ -49,8 +49,8 @@ class StudentAddPage extends StatelessWidget {
             ),
             TextField(
               controller: _address,
-              style: TextStyle(fontSize: 18),
-              decoration: InputDecoration(
+              style: const TextStyle(fontSize: 18),
+              decoration: const InputDecoration(
                 filled: true,
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 hintText: "Address",
@@ -62,8 +62,8 @@ class StudentAddPage extends StatelessWidget {
             ),
             TextField(
               controller: _phone,
-              style: TextStyle(fontSize: 18),
-              decoration: InputDecoration(
+              style: const TextStyle(fontSize: 18),
+              decoration: const InputDecoration(
                 filled: true,
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 hintText: "Phone",
@@ -82,17 +82,18 @@ class StudentAddPage extends StatelessWidget {
                     Student(name: name, address: address, phone: phone));
                 // homeState.addStudent(Student(name: name, address: address, phone: phone));
                 // print(homeState.studentList[0].name);
+                Navigator.pop(context);
               },
+              style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )),
               child: BigText(
                 text: 'Lưu',
                 size: 18,
                 color: Colors.white,
               ),
-              style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )),
             ),
           ],
         ),

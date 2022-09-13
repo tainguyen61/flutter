@@ -9,22 +9,22 @@ class HomeState extends ChangeNotifier {
 
   HomeState({required this.studentList, required this.sqLiteController});
 
-  void addStudent(Student student) {
-    studentList.add(student);
-    notifyListeners();
-  }
-
-  deleteItem(index) {
-    studentList.removeAt(index);
-    notifyListeners();
-  }
-
-  updateItem(String name, String address, String phone, index) {
-    studentList[index].name = name;
-    studentList[index].address = address;
-    studentList[index].phone = phone;
-    notifyListeners();
-  }
+  // void addStudent(Student student) {
+  //   studentList.add(student);
+  //   notifyListeners();
+  // }
+  //
+  // deleteItem(index) {
+  //   studentList.removeAt(index);
+  //   notifyListeners();
+  // }
+  //
+  // updateItem(String name, String address, String phone, index) {
+  //   studentList[index].name = name;
+  //   studentList[index].address = address;
+  //   studentList[index].phone = phone;
+  //   notifyListeners();
+  // }
 
   void getListStudents() async {
     studentList.clear();

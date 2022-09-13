@@ -28,16 +28,16 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderRadius: const BorderRadius.all(Radius.circular(8)),
                         color: Colors.blue.shade50),
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.add,
                         color: Colors.blue,
                       ),
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   BigText(
@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
               indent: 80,
               thickness: .2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Consumer<HomeState>(builder: ((context, value, child) {
@@ -94,33 +94,33 @@ class HomePage extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.white,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.grey,
                               blurRadius: 2,
                             )
                           ],
                         ),
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         height: 100,
                         width: 50,
                         child: Stack(
                           children: [
                             Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Container(
                                   width: 50,
                                   height: 50,
-                                  child: CircleAvatar(
+                                  child: const CircleAvatar(
                                     backgroundImage: AssetImage(
                                       'assets/images/img.jpg',
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Column(
@@ -131,13 +131,13 @@ class HomePage extends StatelessWidget {
                                       text: studentItem.name,
                                       size: 16,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     SmallText(
                                         text:
                                             'Địa chỉ: ${studentItem.address}'),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     SmallText(
@@ -150,7 +150,7 @@ class HomePage extends StatelessWidget {
                               bottom: 0,
                               right: 0,
                               child: IconButton(
-                                icon: Icon(Icons.delete),
+                                icon: const Icon(Icons.delete),
                                 onPressed: () async {
                                   await homeState.sqLiteController
                                       .deleteStudent(studentItem.id!);
